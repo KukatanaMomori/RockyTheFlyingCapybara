@@ -8,7 +8,7 @@
         <variable constant="0" name="falling" sid="122607971621720" static="0" type="number">0</variable>
         <variable constant="0" name="hit" sid="746409269314341" static="0" type="number">0</variable>
         <variable constant="0" name="is_jumping" sid="916316528368032" static="0" type="number">0</variable>
-        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">50</variable>
+        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">10</variable>
         <event-group description="" sid="471636627204927" title="display text - game UI">
             <sub-events>
                 <event-block sid="479137943952384">
@@ -20,7 +20,7 @@
                             <param id="0" name="Text">&quot;Fuel: &quot;&amp;int(fuel)</param>
                         </action>
                         <action id="0" name="Set text" sid="474126890433458" type="fuel_text">
-                            <param id="0" name="Text">&quot;Fuel: &quot;&amp;int(fuel)</param>
+                            <param id="0" name="Text">int(fuel)</param>
                         </action>
                         <action id="0" name="Set text" sid="205827040450977" type="Death">
                             <param id="0" name="Text">&quot;Uncanny Counter: &quot;&amp;int(death)</param>
@@ -39,7 +39,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="148650233246664" type="fuel_text">
-                            <param id="0" name="Text">&quot;Fuel: out of fuel&quot;</param>
+                            <param id="0" name="Text">&quot;?&quot;</param>
                         </action>
                         <action behavior="Platform" id="13" name="Set double-jump" sid="548195806177938" type="capybara">
                             <param id="0" name="State">0</param>
@@ -156,7 +156,7 @@
                             </conditions>
                             <actions>
                                 <action behavior="Platform" id="4" name="Set jump strength" sid="911200879162460" type="capybara">
-                                    <param id="0" name="Jump strength">650</param>
+                                    <param id="0" name="Jump strength">300</param>
                                 </action>
                                 <action id="4" name="Set animation" sid="310260335873130" type="capybara">
                                     <param id="0" name="Animation">&quot;jumping&quot;</param>
@@ -166,16 +166,13 @@
                                     <param id="0" name="Control">2</param>
                                 </action>
                                 <action behavior="Platform" id="14" name="Set jump sustain" sid="573588629199364" type="capybara">
-                                    <param id="0" name="Jump sustain">5</param>
+                                    <param id="0" name="Jump sustain">2</param>
                                 </action>
                                 <action behavior="Bullet" id="5" name="Set enabled" sid="196136544095831" type="capybara">
                                     <param id="0" name="State">1</param>
                                 </action>
                                 <action behavior="Bullet" id="0" name="Set speed" sid="351579826698136" type="capybara">
-                                    <param id="0" name="Speed">400</param>
-                                </action>
-                                <action behavior="Bullet" id="1" name="Set acceleration" sid="100396676796579" type="capybara">
-                                    <param id="0" name="Acceleration">0</param>
+                                    <param id="0" name="Speed">150</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="629447433864505" type="System">
                                     <param id="0" name="Variable">is_jumping</param>
@@ -228,17 +225,21 @@
                                     <param id="0" name="State">1</param>
                                 </action>
                                 <action behavior="Platform" id="4" name="Set jump strength" sid="164787398827941" type="capybara">
-                                    <param id="0" name="Jump strength">900</param>
+                                    <param id="0" name="Jump strength">450</param>
                                 </action>
                                 <action behavior="Bullet" id="5" name="Set enabled" sid="520642465657583" type="capybara">
                                     <param id="0" name="State">1</param>
                                 </action>
                                 <action behavior="Bullet" id="0" name="Set speed" sid="773394433242601" type="capybara">
-                                    <param id="0" name="Speed">900</param>
+                                    <param id="0" name="Speed">300</param>
                                 </action>
                                 <action id="4" name="Set animation" sid="871117324964408" type="capybara">
                                     <param id="0" name="Animation">&quot;jumping&quot;</param>
                                     <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="763661680022162" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Value">-1</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="885429125302805" type="System">
                                     <param id="0" name="Seconds">2</param>
@@ -249,10 +250,6 @@
                                 <action id="-9" name="Set value" sid="750112790344907" type="System">
                                     <param id="0" name="Variable">is_jumping</param>
                                     <param id="1" name="Value">0</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="763661680022162" type="System">
-                                    <param id="0" name="Variable">fuel</param>
-                                    <param id="1" name="Value">-1</param>
                                 </action>
                                 <action id="4" name="Set animation" sid="119669220752208" type="capybara">
                                     <param id="0" name="Animation">&quot;default&quot;</param>

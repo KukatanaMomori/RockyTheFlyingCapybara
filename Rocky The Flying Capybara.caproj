@@ -229,6 +229,84 @@
             <texture original-source="C:\itch io shit game jam\oak_woods_v1.0\oak_woods_tileset.png" />
             <tiles />
         </object-type>
+        <object-type name="move_Text" sid="428884031685219">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="left_ar" sid="424769577042473">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="751440959939006" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\itch io shit game jam\left_ar.png">
+                        <collision-poly>
+                            <point x="0.15" y="0.15" />
+                            <point x="0.5" y="0" />
+                            <point x="0.85" y="0.15" />
+                            <point x="1" y="0.5" />
+                            <point x="0.85" y="0.85" />
+                            <point x="0.5" y="1" />
+                            <point x="0.15" y="0.85" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="right_ar" sid="644274691054222">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="359847237709697" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\itch io shit game jam\right_ar.png">
+                        <collision-poly>
+                            <point x="0.15" y="0.15" />
+                            <point x="0.5" y="0" />
+                            <point x="0.85" y="0.15" />
+                            <point x="1" y="0.5" />
+                            <point x="0.85" y="0.85" />
+                            <point x="0.5" y="1" />
+                            <point x="0.15" y="0.85" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="space" sid="511040446568165">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="612726603547431" speed="5">
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.526316" original-source="C:\itch io shit game jam\space.png">
+                        <collision-poly>
+                            <point x="0.0377358" y="0.105263" />
+                            <point x="0.490566" y="0.157895" />
+                            <point x="0.981132" y="0.0526316" />
+                            <point x="0.943396" y="0.473684" />
+                            <point x="0.981132" y="0.947368" />
+                            <point x="0.490566" y="0.842105" />
+                            <point x="0.0377358" y="0.894737" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="rocket" sid="284399755098002">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="705067539789144" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.514286" original-source="C:\itch io shit game jam\rocket.png">
+                        <collision-poly>
+                            <point x="0.3125" y="0.142857" />
+                            <point x="0.5" y="0" />
+                            <point x="0.6875" y="0.142857" />
+                            <point x="0.8125" y="0.485714" />
+                            <point x="0.6875" y="0.857143" />
+                            <point x="0.5" y="0.942857" />
+                            <point x="0.25" y="0.885714" />
+                            <point x="0.1875" y="0.485714" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
