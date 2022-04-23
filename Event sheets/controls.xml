@@ -19,6 +19,12 @@
                         <action id="0" name="Set text" sid="722212823421949" type="fuel_text">
                             <param id="0" name="Text">&quot;Fuel: &quot;&amp;int(fuel)</param>
                         </action>
+                        <action id="0" name="Set text" sid="474126890433458" type="fuel_text">
+                            <param id="0" name="Text">&quot;Fuel: &quot;&amp;int(fuel)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="205827040450977" type="Death">
+                            <param id="0" name="Text">&quot;Uncanny Counter: &quot;&amp;int(death)</param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>disable rocket jump</comment>
@@ -354,6 +360,48 @@
                         </action>
                         <action id="0" name="Set text" sid="530369426737805" type="falling">
                             <param id="0" name="Text">&quot;is falling :&quot;&amp;int(falling)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="134233605671461">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="159245823334640" type="Keyboard">
+                            <param id="0" name="Key">113</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="550930360651930" type="falling">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="104861578881397" type="is_jumping_txt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="543057749342075" type="falling">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="668173113858429" type="hit_wall">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="959679089696953">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="356074989498256" type="Keyboard">
+                            <param id="0" name="Key">112</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="870357411982663" type="falling">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="855550952552547" type="is_jumping_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="499707052685854" type="falling">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="796034054831329" type="hit_wall">
+                            <param id="0" name="Visibility">1</param>
                         </action>
                     </actions>
                 </event-block>

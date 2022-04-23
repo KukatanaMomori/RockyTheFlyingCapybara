@@ -4,17 +4,17 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>1649.49</position-x>
-        <position-y>152.116</position-y>
-        <position-z>62.6094</position-z>
-        <lookat-x>1649.49</lookat-x>
-        <lookat-y>152.116</lookat-y>
+        <position-x>239.368</position-x>
+        <position-y>148.6</position-y>
+        <position-z>46.6506</position-z>
+        <lookat-x>239.368</lookat-x>
+        <lookat-y>148.6</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>1</snap-to-grid>
     <show-grid>1</show-grid>
-    <snap-width>16</snap-width>
-    <snap-height>16</snap-height>
+    <snap-width>24</snap-width>
+    <snap-height>24</snap-height>
     <show-collision-polys>0</show-collision-polys>
     <translucent-inactive-layers>0</translucent-inactive-layers>
     <properties>
@@ -23,13 +23,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="1" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="tiledb1" />
+    <active-layer name="foreground" />
     <layers>
         <layer locked="0" name="tiledb0" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="tiledb1" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="tiledb2" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="tilemap" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="foreground" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="tilemap" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="UI" parallax-in-editor="0" visible="1" />
     </layers>
 </c2uistate>
