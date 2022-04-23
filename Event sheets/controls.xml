@@ -11,6 +11,20 @@
         <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">10</variable>
         <event-group description="" sid="471636627204927" title="display text - game UI">
             <sub-events>
+                <event-block sid="831791603918360">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="975353834939364" type="System">
+                            <param id="0" name="Variable">death</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="824996144278172" type="Death">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="479137943952384">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="442323430808080" type="System" />
@@ -52,22 +66,31 @@
             <sub-events>
                 <event-block sid="100627366644183">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="204619378544320" type="capybara">
-                            <param id="0" name="Object">Sprite2</param>
+                        <condition id="1" name="Is overlapping another object" sid="204619378544320" type="capybara">
+                            <param id="0" name="Object">wall_hit</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Play" sid="810268599156594" type="Audio">
-                            <param id="0" name="Audio file">hit</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;hit&quot;</param>
-                        </action>
                         <action id="-9" name="Set value" sid="806347833107361" type="System">
                             <param id="0" name="Variable">hit</param>
                             <param id="1" name="Value">1</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="925805071886795">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="524434385877470" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="810268599156594" type="Audio">
+                                    <param id="0" name="Audio file">hit</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;hit&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="674223035637849">
                     <conditions>
@@ -84,9 +107,6 @@
                         </action>
                         <action id="-16" name="Wait" sid="449454133294572" type="System">
                             <param id="0" name="Seconds">1</param>
-                        </action>
-                        <action id="6" name="Stop" sid="239725188490799" type="Audio">
-                            <param id="0" name="Tag">&quot;hit&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -277,11 +297,11 @@
                         <comment>move left/right</comment>
                         <event-block any="1" sid="690149672457000">
                             <conditions>
-                                <condition id="2" name="Key is down" sid="199275968726271" type="Keyboard">
-                                    <param id="0" name="Key">68</param>
-                                </condition>
                                 <condition id="2" name="Key is down" sid="111170556304129" type="Keyboard">
                                     <param id="0" name="Key">39</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="199275968726271" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -296,14 +316,39 @@
                                     <param id="0" name="State">1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="846590381436967">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="204265137378171" type="Keyboard">
+                                            <param id="0" name="Key">39</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="722425615555232">
+                                            <conditions>
+                                                <condition id="-4" name="Trigger once while true" sid="925917347998313" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Play" sid="612417324097358" type="Audio">
+                                                    <param id="0" name="Audio file">steps</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">-10</param>
+                                                    <param id="1" name="Tag (optional)">&quot;steps&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block any="1" sid="541144976368529">
                             <conditions>
-                                <condition id="2" name="Key is down" sid="266628373280474" type="Keyboard">
-                                    <param id="0" name="Key">65</param>
-                                </condition>
                                 <condition id="2" name="Key is down" sid="787338641897634" type="Keyboard">
                                     <param id="0" name="Key">37</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="266628373280474" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -318,7 +363,33 @@
                                     <param id="0" name="State">0</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="395680889088007">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="149923707775889" type="Keyboard">
+                                            <param id="0" name="Key">37</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="479856365969163">
+                                            <conditions>
+                                                <condition id="-4" name="Trigger once while true" sid="327051276727238" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Play" sid="565866220549312" type="Audio">
+                                                    <param id="0" name="Audio file">steps</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">-10</param>
+                                                    <param id="1" name="Tag (optional)">&quot;steps&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
                         </event-block>
+                        <comment>released</comment>
                         <event-block any="1" sid="992582273600630">
                             <conditions>
                                 <condition id="3" name="On key released" sid="614786850814399" type="Keyboard">
@@ -329,12 +400,30 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="6" name="Stop" sid="986631222515330" type="Audio">
+                                    <param id="0" name="Tag">&quot;steps&quot;</param>
+                                </action>
                                 <action id="4" name="Set animation" sid="440776439762469" type="capybara">
                                     <param id="0" name="Animation">&quot;default&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
                                 <action id="6" name="Set speed" sid="856480615108494" type="capybara">
                                     <param id="0" name="Speed">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="447769335062457">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="507828912517370" type="Keyboard">
+                                    <param id="0" name="Key">37</param>
+                                </condition>
+                                <condition id="3" name="On key released" sid="336190925788250" type="Keyboard">
+                                    <param id="0" name="Key">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="914557986063459" type="Audio">
+                                    <param id="0" name="Tag">&quot;steps&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -452,6 +541,61 @@
         </event-group>
         <event-group description="" sid="336708466609128" title="sounds">
             <sub-events>
+                <comment>mute/unmute music</comment>
+                <event-block sid="359306224233729">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="979161419758126" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">music_btn</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="362125922586571">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="357942527171110" type="System">
+                                    <param id="0" name="Variable">music</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="921840498147424" type="Audio">
+                                    <param id="0" name="Tag">&quot;calm&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="154931367841490" type="System">
+                                    <param id="0" name="Variable">music</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="260557984675122" type="music_btn">
+                                    <param id="0" name="Animation">&quot;mute&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="634887540112206">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="894510266922772" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="219682107760266" type="Audio">
+                                    <param id="0" name="Tag">&quot;calm&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="866365363449802" type="System">
+                                    <param id="0" name="Variable">music</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="236903381081699" type="music_btn">
+                                    <param id="0" name="Animation">&quot;unmute&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="848231463015073">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="824346724873140" type="System" />
@@ -465,62 +609,45 @@
                         </action>
                     </actions>
                 </event-block>
-                <comment>mute/unmute music</comment>
             </sub-events>
         </event-group>
-        <event-block sid="359306224233729">
+        <event-block sid="315237005620619">
             <conditions>
-                <condition id="6" name="On object clicked" sid="979161419758126" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                    <param id="2" name="Object clicked">music_btn</param>
+                <condition id="0" name="On key pressed" sid="415215211114334" type="Keyboard">
+                    <param id="0" name="Key">69</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="979364679359287" type="capybara">
+                    <param id="0" name="Object">weed</param>
                 </condition>
             </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="362125922586571">
-                    <conditions>
-                        <condition id="-14" name="Compare variable" sid="357942527171110" type="System">
-                            <param id="0" name="Variable">music</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="2" name="Set muted" sid="921840498147424" type="Audio">
-                            <param id="0" name="Tag">&quot;calm&quot;</param>
-                            <param id="1" name="State">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="154931367841490" type="System">
-                            <param id="0" name="Variable">music</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="260557984675122" type="music_btn">
-                            <param id="0" name="Animation">&quot;mute&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="634887540112206">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="894510266922772" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="2" name="Set muted" sid="219682107760266" type="Audio">
-                            <param id="0" name="Tag">&quot;calm&quot;</param>
-                            <param id="1" name="State">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="866365363449802" type="System">
-                            <param id="0" name="Variable">music</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="236903381081699" type="music_btn">
-                            <param id="0" name="Animation">&quot;unmute&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
+            <actions>
+                <action id="-15" name="Set visible" sid="936408448107289" type="weed">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="371202431577538" type="System">
+                    <param id="0" name="Variable">fuel</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-15" name="Set visible" sid="801106100114638" type="consume">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="409522151432472" type="E">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="418355483373089">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="781993973117575" type="capybara">
+                    <param id="0" name="Object">spikes</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="644184156972032" type="System">
+                    <param id="0" name="Seconds">0.2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="610548682691183" type="capybara" />
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
