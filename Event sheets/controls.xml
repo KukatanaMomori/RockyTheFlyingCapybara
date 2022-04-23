@@ -259,6 +259,45 @@
                             </sub-events>
                         </event-block>
                         <comment>rocket double jump</comment>
+                        <event-block sid="411698175662773">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="642401115808866" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="921492291358365" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="554988126012897" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="366723624199962">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="369007017228822" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="104623038813693" type="Audio">
+                                            <param id="0" name="Audio file">rocket</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;rocket&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="924719776942161" type="System">
+                                            <param id="0" name="Seconds">0.7</param>
+                                        </action>
+                                        <action id="6" name="Stop" sid="224276247633748" type="Audio">
+                                            <param id="0" name="Tag">&quot;rocket&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                         <event-block sid="751744434145771">
                             <conditions>
                                 <condition id="0" name="On key pressed" sid="901077834474052" type="Keyboard">
@@ -737,6 +776,53 @@
                     <param id="0" name="Visibility">0</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="301617701338070">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="922541927074690" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="877010958467910" type="Audio">
+                            <param id="0" name="Audio file">eat</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="916440919168999">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="932219684483349" type="capybara">
+                    <param id="0" name="Object">spikes</param>
+                </condition>
+                <condition id="0" name="On collision with another object" sid="231532016332996" type="capybara">
+                    <param id="0" name="Object">spearRight</param>
+                </condition>
+                <condition id="0" name="On collision with another object" sid="271666499003179" type="capybara">
+                    <param id="0" name="Object">spearRight2</param>
+                </condition>
+                <condition id="0" name="On collision with another object" sid="692200032695996" type="capybara">
+                    <param id="0" name="Object">spear_smaller</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="916587143926357">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="762036477319545" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="859888879617293" type="Audio">
+                            <param id="0" name="Audio file">ded</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block any="1" sid="418355483373089">
             <conditions>

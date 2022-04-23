@@ -2,7 +2,7 @@
 <c2project>
     <name>Rocky The Flying Capybara</name>
     <description></description>
-    <version>1.0</version>
+    <version>1.01</version>
     <author></author>
     <author-email></author-email>
     <author-website></author-website>
@@ -946,6 +946,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Text" sid="976721515738821">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -993,6 +996,12 @@
         <file name="steps.ogg" />
         <file name="jump.m4a" />
         <file name="jump.ogg" />
+        <file name="rocket.m4a" />
+        <file name="rocket.ogg" />
+        <file name="ded.m4a" />
+        <file name="ded.ogg" />
+        <file name="eat.m4a" />
+        <file name="eat.ogg" />
     </sounds-folder>
     <music-folder>
         <file name="calm music.ogg" />
