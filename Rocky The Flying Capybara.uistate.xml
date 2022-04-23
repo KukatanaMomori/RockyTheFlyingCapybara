@@ -10,10 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="1">lvl1</layout>
-        <layout order="2">main menu</layout>
-        <event-sheet active="1" order="0">controls</event-sheet>
-        <event-sheet order="3">main menu events</event-sheet>
+        <layout order="0">lvl1</layout>
+        <layout order="1">main menu</layout>
+        <event-sheet order="2">main menu events</event-sheet>
+        <event-sheet active="1" order="3">controls</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -44,9 +44,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/rocket/" />
         <folder expanded="1" path="animation-folder/weed/" />
         <folder expanded="1" path="animation-folder/E/" />
-        <folder expanded="1" path="animation-folder/checkpoint/" />
+        <folder expanded="1" path="animation-folder/collider_checkpoint/" />
         <folder expanded="1" path="animation-folder/spearRight/" />
         <folder expanded="1" path="animation-folder/spearRight2/" />
         <folder expanded="1" path="animation-folder/spear_smaller/" />
+        <folder expanded="1" path="animation-folder/chekcpoint/" />
+        <folder expanded="1" path="animation-folder/spearRight3/" />
+        <folder expanded="1" path="animation-folder/spearRight4/" />
     </folders-expanded>
 </c2uistate>

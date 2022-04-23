@@ -767,7 +767,7 @@
                 </action>
                 <action id="-10" name="Add to" sid="371202431577538" type="System">
                     <param id="0" name="Variable">fuel</param>
-                    <param id="1" name="Value">3</param>
+                    <param id="1" name="Value">5</param>
                 </action>
                 <action id="-15" name="Set visible" sid="801106100114638" type="consume">
                     <param id="0" name="Visibility">0</param>
@@ -864,7 +864,7 @@
                     <param id="0" name="Visibility">1</param>
                 </action>
                 <action id="-4" name="Set position to another object" sid="834947300198252" type="capybara">
-                    <param id="0" name="Object">checkpoint</param>
+                    <param id="0" name="Object">chekcpoint</param>
                     <param id="1" name="Image point (optional)">0</param>
                 </action>
                 <action behavior="Bullet" id="0" name="Set speed" sid="721679146080804" type="capybara">
@@ -955,5 +955,57 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="916332949215854">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="960090482579358" type="capybara">
+                    <param id="0" name="Object">collider_checkpoint</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="104690452262503">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="242887999615649" type="collider_checkpoint">
+                            <param id="0" name="Unique ID">36</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="746526634097764" type="chekcpoint">
+                            <param id="0" name="X">1379.465</param>
+                            <param id="1" name="Y"> 242.239</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="178462776005521">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="624946766201487" type="collider_checkpoint">
+                            <param id="0" name="Unique ID">48</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="649117262513841" type="chekcpoint">
+                            <param id="0" name="X">2602.682</param>
+                            <param id="1" name="Y">279.146</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="485350005941320">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="964606636986294" type="collider_checkpoint">
+                            <param id="0" name="Unique ID">36</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="820715330912289">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="145488923193831" type="collider_checkpoint">
+                            <param id="0" name="Unique ID">36</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>

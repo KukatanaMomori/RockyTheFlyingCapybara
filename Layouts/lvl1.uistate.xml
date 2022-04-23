@@ -4,11 +4,11 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>2607.23</position-x>
-        <position-y>292.195</position-y>
-        <position-z>31.1206</position-z>
-        <lookat-x>2607.23</lookat-x>
-        <lookat-y>292.195</lookat-y>
+        <position-x>3344.33</position-x>
+        <position-y>81.53</position-y>
+        <position-z>41.4216</position-z>
+        <lookat-x>3344.33</lookat-x>
+        <lookat-y>81.53</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>0</snap-to-grid>
@@ -23,7 +23,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="1" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="spikes" />
+    <active-layer name="checkpoints" />
     <layers>
         <layer locked="1" name="tiledb0" parallax-in-editor="0" visible="1" />
         <layer locked="1" name="tiledb1" parallax-in-editor="0" visible="1" />
@@ -33,6 +33,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layer locked="1" name="wall hits" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="spikes" parallax-in-editor="0" visible="1" />
         <layer locked="1" name="spears" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="checkpoints" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="UI" parallax-in-editor="0" visible="1" />
     </layers>
 </c2uistate>
