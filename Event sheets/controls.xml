@@ -23,6 +23,9 @@
                         <action id="-15" name="Set visible" sid="824996144278172" type="Death">
                             <param id="0" name="Visibility">1</param>
                         </action>
+                        <action id="-15" name="Set visible" sid="676080264515268" type="wall_jump_troll">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="479137943952384">
@@ -574,27 +577,116 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="418355483373089">
+        <event-block any="1" sid="418355483373089">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="781993973117575" type="capybara">
                     <param id="0" name="Object">spikes</param>
                 </condition>
+                <condition id="0" name="On collision with another object" sid="340870539574959" type="capybara">
+                    <param id="0" name="Object">spearRight</param>
+                </condition>
+                <condition id="0" name="On collision with another object" sid="833448668172794" type="capybara">
+                    <param id="0" name="Object">spearRight2</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-16" name="Wait" sid="644184156972032" type="System">
-                    <param id="0" name="Seconds">0.2</param>
-                </action>
-                <action id="-9" name="Destroy" sid="610548682691183" type="capybara" />
-                <action id="0" name="Spawn another object" sid="194653113726164" type="capybara">
-                    <param id="0" name="Object">capybara</param>
-                    <param id="1" name="Layer">&quot;foreground&quot;</param>
-                    <param id="2" name="Image point">0</param>
+                    <param id="0" name="Seconds">0.1</param>
                 </action>
                 <action id="-10" name="Add to" sid="763067144257986" type="System">
                     <param id="0" name="Variable">death</param>
                     <param id="1" name="Value">1</param>
                 </action>
+                <action id="-10" name="Add to" sid="460898573541641" type="System">
+                    <param id="0" name="Variable">fuel</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="834947300198252" type="capybara">
+                    <param id="0" name="Object">checkpoint</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
             </actions>
+        </event-block>
+        <event-block sid="386791524685527">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="476631778442723" type="System">
+                    <param id="0" name="Variable">death</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="362677284849966">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="631184004338363" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="31" name="Add distortion effect" sid="863526550075242" type="Audio">
+                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                            <param id="1" name="Threshold">-15</param>
+                            <param id="2" name="Headroom">1</param>
+                            <param id="3" name="Drive">10</param>
+                            <param id="4" name="Make-up gain">0</param>
+                            <param id="5" name="Mix">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="637772299504987">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="149686258698287" type="System">
+                    <param id="0" name="Variable">death</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">11</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="231883668246923">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="830098931182715" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="31" name="Add distortion effect" sid="557711131224188" type="Audio">
+                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                            <param id="1" name="Threshold">-25</param>
+                            <param id="2" name="Headroom">21</param>
+                            <param id="3" name="Drive">40</param>
+                            <param id="4" name="Make-up gain">0</param>
+                            <param id="5" name="Mix">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="190312346396487">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="184744769810338" type="System">
+                    <param id="0" name="Variable">death</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">15</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="873636562408479">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="252290693536732" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="31" name="Add distortion effect" sid="757000132440219" type="Audio">
+                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                            <param id="1" name="Threshold">-4</param>
+                            <param id="2" name="Headroom">21</param>
+                            <param id="3" name="Drive">65</param>
+                            <param id="4" name="Make-up gain">0</param>
+                            <param id="5" name="Mix">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

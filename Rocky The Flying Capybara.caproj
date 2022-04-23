@@ -231,7 +231,7 @@
             <texture original-source="C:\itch io shit game jam\oak_woods_v1.0\oak_woods_tileset.png" />
             <tiles />
         </object-type>
-        <object-type name="move_Text" sid="428884031685219">
+        <object-type name="wall_jump_troll" sid="428884031685219">
             <plugin id="Text" />
         </object-type>
         <object-type name="left_ar" sid="424769577042473">
@@ -353,6 +353,145 @@
                             <point x="0.5" y="1" />
                             <point x="0.0454545" y="0.965517" />
                             <point x="0" y="0.482759" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="checkpoint" sid="398584910844341">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="checkpoint" sid="486952496946654" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="488762120266722" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="spearRight" sid="626629082963547">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="691056528463923">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="10" loop="1" name="Default" pingpong="0" repeatcount="99" repeatto="0" sid="902786233406656" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\1.png">
+                        <collision-poly>
+                            <point x="0" y="0.764062" />
+                            <point x="1" y="0.767187" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.7625" />
+                            <point x="1" y="0.765625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.7625" />
+                            <point x="1" y="0.75625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.75625" />
+                            <point x="1" y="0.75625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\6.png">
+                        <collision-poly>
+                            <point x="0" y="0.30625" />
+                            <point x="1" y="0.30625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.75625" />
+                            <point x="1" y="0.765625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="spearRight2" sid="432103241304770">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="836199016522736">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="10" loop="1" name="Default" pingpong="0" repeatcount="99" repeatto="0" sid="423471142311191" speed="3">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\1.png">
+                        <collision-poly>
+                            <point x="0" y="0.764062" />
+                            <point x="1" y="0.767187" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.7625" />
+                            <point x="1" y="0.765625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.7625" />
+                            <point x="1" y="0.75625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.75625" />
+                            <point x="1" y="0.75625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\spear\6.png">
+                        <collision-poly>
+                            <point x="0" y="0.30625" />
+                            <point x="1" y="0.30625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.75625" />
+                            <point x="1" y="0.765625" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
