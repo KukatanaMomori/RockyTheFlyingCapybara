@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Layout 1</name>
+    <name>lvl1</name>
     <sid>4650502934421703</sid>
     <event-sheet>controls</event-sheet>
     <size>
@@ -272,7 +272,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Button" uid="14">
+                <instance type="music_on_off" uid="14">
                     <properties>
                         <type>Button</type>
                         <text>Music</text>
