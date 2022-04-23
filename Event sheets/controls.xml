@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>controls</name>
+    <events>
+        <variable constant="0" name="music" sid="328653317859592" static="0" type="number">0</variable>
+        <variable constant="0" name="death" sid="311713667994832" static="0" type="number">0</variable>
+        <variable constant="0" name="falling" sid="122607971621720" static="0" type="number">0</variable>
+        <variable constant="0" name="hit" sid="746409269314341" static="0" type="number">0</variable>
+        <variable constant="0" name="is_jumping" sid="916316528368032" static="0" type="number">0</variable>
+        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">50</variable>
+        <event-group description="" sid="471636627204927" title="display text - game UI">
+            <sub-events>
+                <event-block sid="479137943952384">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="442323430808080" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="722212823421949" type="fuel_text">
+                            <param id="0" name="Text">&quot;Fuel: &quot;&amp;int(fuel)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>disable rocket jump</comment>
+                <event-block sid="475155873781875">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="473395803247031" type="System" />
+                        <condition id="-14" name="Compare variable" sid="941231846585058" type="System">
+                            <param id="0" name="Variable">fuel</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="148650233246664" type="fuel_text">
+                            <param id="0" name="Text">&quot;Fuel: out of fuel&quot;</param>
+                        </action>
+                        <action behavior="Platform" id="13" name="Set double-jump" sid="548195806177938" type="capybara">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="854678539114448" title="controls">
+            <sub-events>
+                <event-block sid="100627366644183">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="204619378544320" type="capybara">
+                            <param id="0" name="Object">Sprite2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="806347833107361" type="System">
+                            <param id="0" name="Variable">hit</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="810268599156594" type="Audio">
+                            <param id="0" name="Audio file">hit</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;hit&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="674223035637849">
+                    <conditions>
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="426309618720948" type="capybara" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="236370581791943" type="System">
+                            <param id="0" name="Variable">falling</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="563279889570127" type="System">
+                            <param id="0" name="Variable">is_jumping</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="449454133294572" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="6" name="Stop" sid="239725188490799" type="Audio">
+                            <param id="0" name="Tag">&quot;hit&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="297852894478633">
+                    <conditions>
+                        <condition behavior="Platform" id="4" name="Is falling" sid="613665311462897" type="capybara" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="990627322803248" type="System">
+                            <param id="0" name="Variable">falling</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="709531851522421" type="System">
+                            <param id="0" name="Variable">is_jumping</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="739213117845403" title="jump">
+                    <sub-events>
+                        <event-block sid="179567261141254">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="484003252173843" type="Keyboard">
+                                    <param id="0" name="Key">40</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="377564710687245" type="capybara">
+                                    <param id="0" name="Animation">&quot;jump_prepare&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="738993988340736" type="capybara">
+                                    <param id="0" name="Speed">50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="609202131721998">
+                            <conditions>
+                                <condition id="7" name="Is mirrored" sid="903528695190863" type="capybara" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="721516326348925" type="capybara">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="351196819139010">
+                            <conditions>
+                                <condition id="7" inverted="1" name="Is mirrored" sid="780840741139911" type="capybara" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="644732438448401" type="capybara">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="764635108061148">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="137415665372359" type="Keyboard">
+                                    <param id="0" name="Key">40</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="559613306441742" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="911200879162460" type="capybara">
+                                    <param id="0" name="Jump strength">650</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="310260335873130" type="capybara">
+                                    <param id="0" name="Animation">&quot;jumping&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="287494809833941" type="capybara">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                                <action behavior="Platform" id="14" name="Set jump sustain" sid="573588629199364" type="capybara">
+                                    <param id="0" name="Jump sustain">5</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="196136544095831" type="capybara">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="351579826698136" type="capybara">
+                                    <param id="0" name="Speed">400</param>
+                                </action>
+                                <action behavior="Bullet" id="1" name="Set acceleration" sid="100396676796579" type="capybara">
+                                    <param id="0" name="Acceleration">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="629447433864505" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="207005862404982" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="625665152273017" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="338691025666954" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="808582771587819" type="capybara">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="671887548667000" type="capybara">
+                                    <param id="0" name="Animation">&quot;default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>rocket double jump</comment>
+                        <event-block sid="751744434145771">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="901077834474052" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="236710766040682" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="734732111677522" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="14" name="Set jump sustain" sid="128099354454245" type="capybara">
+                                    <param id="0" name="Jump sustain">2000</param>
+                                </action>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="227950304561234" type="capybara">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                                <action behavior="Platform" id="13" name="Set double-jump" sid="647630622561672" type="capybara">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="164787398827941" type="capybara">
+                                    <param id="0" name="Jump strength">900</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="520642465657583" type="capybara">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="773394433242601" type="capybara">
+                                    <param id="0" name="Speed">900</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="871117324964408" type="capybara">
+                                    <param id="0" name="Animation">&quot;jumping&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="885429125302805" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="574503900209686" type="capybara">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="750112790344907" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="763661680022162" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="119669220752208" type="capybara">
+                                    <param id="0" name="Animation">&quot;default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="471738168553371" title="left / right">
+                    <sub-events>
+                        <comment>disable up arrow</comment>
+                        <event-block sid="379952391834615">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="111364133255547" type="Keyboard">
+                                    <param id="0" name="Key">38</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="124815231345480" type="capybara">
+                                    <param id="0" name="Jump strength">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>move left/right</comment>
+                        <event-block any="1" sid="690149672457000">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="199275968726271" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="111170556304129" type="Keyboard">
+                                    <param id="0" name="Key">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="947763568081050" type="capybara">
+                                    <param id="0" name="Animation">&quot;walking&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="660672382956291" type="capybara">
+                                    <param id="0" name="Speed">20</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="357587928551287" type="capybara">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="541144976368529">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="266628373280474" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="787338641897634" type="Keyboard">
+                                    <param id="0" name="Key">37</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="380633435841321" type="capybara">
+                                    <param id="0" name="Animation">&quot;walking&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="687619538497149" type="capybara">
+                                    <param id="0" name="Speed">20</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="285009409032885" type="capybara">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="992582273600630">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="614786850814399" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                                <condition id="3" name="On key released" sid="720520544392817" type="Keyboard">
+                                    <param id="0" name="Key">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="440776439762469" type="capybara">
+                                    <param id="0" name="Animation">&quot;default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="856480615108494" type="capybara">
+                                    <param id="0" name="Speed">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="301540437152580" title="debug">
+            <sub-events>
+                <event-block sid="792431360123196">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="213244543125284" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="738513095860063" type="is_jumping_txt">
+                            <param id="0" name="Text">&quot;is_jumping: &quot;&amp;int(is_jumping)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="826567948748643" type="hit_wall">
+                            <param id="0" name="Text">&quot;Hit wall? : &quot;&amp;int(hit)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="530369426737805" type="falling">
+                            <param id="0" name="Text">&quot;is falling :&quot;&amp;int(falling)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="673339497611877" title="wall hit">
+            <sub-events>
+                <comment>capybara hit wall trigger animation</comment>
+                <event-block sid="215640262479711">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="101944341286647" type="System">
+                            <param id="0" name="Variable">falling</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="776802054041188" type="System">
+                            <param id="0" name="Variable">hit</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="389505940128473" type="capybara">
+                            <param id="0" name="Animation">&quot;hit&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>capybara finish fallinng from hitting wall</comment>
+                <event-block sid="469900202167628">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="929527142930337" type="System">
+                            <param id="0" name="Variable">falling</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="471575355853990" type="System">
+                            <param id="0" name="Variable">is_jumping</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="272757682976216" type="System">
+                            <param id="0" name="Variable">hit</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="336708466609128" title="sounds">
+            <sub-events>
+                <event-block sid="848231463015073">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="824346724873140" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="288896953767677" type="Audio">
+                            <param id="0" name="Audio file">calm music</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;calm&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>mute/unmute music</comment>
+                <event-block sid="624553868896417">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="215071469322757" type="Button" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="362125922586571">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="357942527171110" type="System">
+                                    <param id="0" name="Variable">music</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="921840498147424" type="Audio">
+                                    <param id="0" name="Tag">&quot;calm&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="154931367841490" type="System">
+                                    <param id="0" name="Variable">music</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="634887540112206">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="894510266922772" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="219682107760266" type="Audio">
+                                    <param id="0" name="Tag">&quot;calm&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="866365363449802" type="System">
+                                    <param id="0" name="Variable">music</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
