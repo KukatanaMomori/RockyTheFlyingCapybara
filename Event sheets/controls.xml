@@ -8,7 +8,7 @@
         <variable constant="0" name="falling" sid="122607971621720" static="0" type="number">0</variable>
         <variable constant="0" name="hit" sid="746409269314341" static="0" type="number">0</variable>
         <variable constant="0" name="is_jumping" sid="916316528368032" static="0" type="number">0</variable>
-        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">9999</variable>
+        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">15</variable>
         <event-group description="" sid="471636627204927" title="display text - game UI">
             <sub-events>
                 <event-block sid="831791603918360">
@@ -166,6 +166,29 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <event-block sid="738298777001071">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="482131380828456" type="Keyboard">
+                                    <param id="0" name="Key">40</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="343141110579645">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="625118445419699" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="131722150560923" type="Audio">
+                                            <param id="0" name="Audio file">jump</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                         <event-block sid="764635108061148">
                             <conditions>
                                 <condition id="3" name="On key released" sid="137415665372359" type="Keyboard">
@@ -219,6 +242,21 @@
                                     <param id="1" name="From">1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="976102017967072">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="745430692202421" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="152249781124442" type="Audio">
+                                            <param id="0" name="Audio file">jump</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <comment>rocket double jump</comment>
                         <event-block sid="751744434145771">
@@ -308,6 +346,9 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="988261853494951" type="capybara">
+                                    <param id="0" name="State">1</param>
+                                </action>
                                 <action id="4" name="Set animation" sid="947763568081050" type="capybara">
                                     <param id="0" name="Animation">&quot;walking&quot;</param>
                                     <param id="1" name="From">1</param>
@@ -355,6 +396,9 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="250359142485188" type="capybara">
+                                    <param id="0" name="State">1</param>
+                                </action>
                                 <action id="4" name="Set animation" sid="380633435841321" type="capybara">
                                     <param id="0" name="Animation">&quot;walking&quot;</param>
                                     <param id="1" name="From">1</param>
@@ -724,6 +768,9 @@
                     <param id="0" name="Variable">fuel</param>
                     <param id="1" name="Value">-1</param>
                 </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="277899448704308" type="capybara">
+                    <param id="0" name="State">0</param>
+                </action>
                 <action id="-16" name="Wait" sid="477648290275699" type="System">
                     <param id="0" name="Seconds">0.2</param>
                 </action>
@@ -785,5 +832,42 @@
                 </action>
             </actions>
         </event-block>
+        <event-group description="" sid="933800629881006" title="cheats">
+            <sub-events>
+                <event-block sid="566708357968968">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="929027329638771" type="Keyboard">
+                            <param id="0" name="Key">114</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="353574267673790" type="System">
+                            <param id="0" name="Variable">death</param>
+                            <param id="1" name="Value">-999</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="953481539068274" type="System">
+                            <param id="0" name="Variable">fuel</param>
+                            <param id="1" name="Value">999</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="713347769537923" type="Death">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="12" name="Remove all effects" sid="380502369728503" type="Audio">
+                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                        </action>
+                        <action id="-31" name="Set layout effect parameter" sid="712114809490566" type="System">
+                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">100</param>
+                        </action>
+                        <action id="-31" name="Set layout effect parameter" sid="590405117074431" type="System">
+                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
