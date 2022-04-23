@@ -8,7 +8,7 @@
         <variable constant="0" name="falling" sid="122607971621720" static="0" type="number">0</variable>
         <variable constant="0" name="hit" sid="746409269314341" static="0" type="number">0</variable>
         <variable constant="0" name="is_jumping" sid="916316528368032" static="0" type="number">0</variable>
-        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">10</variable>
+        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">9999</variable>
         <event-group description="" sid="471636627204927" title="display text - game UI">
             <sub-events>
                 <event-block sid="831791603918360">
@@ -489,7 +489,7 @@
                                 <condition id="-14" name="Compare variable" sid="476631778442723" type="System">
                                     <param id="0" name="Variable">death</param>
                                     <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">5</param>
+                                    <param id="2" name="Value">9</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -507,6 +507,15 @@
                                             <param id="4" name="Make-up gain">0</param>
                                             <param id="5" name="Mix">100</param>
                                         </action>
+                                        <action id="-29" name="Set layout effect enabled" sid="862831800323913" type="System">
+                                            <param id="0" name="Mode">1</param>
+                                            <param id="1" name="Effect">&quot;Brightness&quot;</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="444458948992280" type="System">
+                                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">95</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -516,7 +525,7 @@
                                 <condition id="-14" name="Compare variable" sid="149686258698287" type="System">
                                     <param id="0" name="Variable">death</param>
                                     <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">11</param>
+                                    <param id="2" name="Value">16</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -534,6 +543,16 @@
                                             <param id="4" name="Make-up gain">0</param>
                                             <param id="5" name="Mix">100</param>
                                         </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="102364539504841" type="System">
+                                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">90</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="718029213818718" type="System">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">150</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -543,7 +562,7 @@
                                 <condition id="-14" name="Compare variable" sid="184744769810338" type="System">
                                     <param id="0" name="Variable">death</param>
                                     <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">15</param>
+                                    <param id="2" name="Value">24</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -560,6 +579,19 @@
                                             <param id="3" name="Drive">65</param>
                                             <param id="4" name="Make-up gain">0</param>
                                             <param id="5" name="Mix">100</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="478718667894699" type="System">
+                                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">85</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="902519442925377" type="System">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">400</param>
+                                        </action>
+                                        <action id="3" name="Set font size" sid="275650237106253" type="Death">
+                                            <param id="0" name="Size (pt)">20</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -673,6 +705,9 @@
                 <condition id="0" name="On collision with another object" sid="833448668172794" type="capybara">
                     <param id="0" name="Object">spearRight2</param>
                 </condition>
+                <condition id="0" name="On collision with another object" sid="367619076650105" type="capybara">
+                    <param id="0" name="Object">spear_smaller</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-16" name="Wait" sid="644184156972032" type="System">
@@ -725,6 +760,16 @@
                 </action>
                 <action id="12" name="Remove all effects" sid="746719942899417" type="Audio">
                     <param id="0" name="Tag">&quot;calm&quot;</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="593657746621195" type="System">
+                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="765223009147489" type="System">
+                    <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
                 </action>
             </actions>
         </event-block>
