@@ -73,11 +73,30 @@
             </object-type>
         </object-folder>
         <object-folder name="buttons">
-            <object-type name="music_on_off" sid="792964910077763">
-                <plugin id="Button" />
-            </object-type>
             <object-type name="Start_mainmenu" sid="102892418405867">
                 <plugin id="Button" />
+            </object-type>
+            <object-type name="music_btn" sid="168466019100578">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="unmute" pingpong="0" repeatcount="1" repeatto="0" sid="664842313619352" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\itch io shit game jam\sound_on.png">
+                            <collision-poly>
+                                <point x="0.15" y="0.15" />
+                                <point x="0.5" y="0" />
+                                <point x="0.85" y="0.15" />
+                                <point x="1" y="0.5" />
+                                <point x="0.85" y="0.85" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15" y="0.85" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="mute" pingpong="0" repeatcount="1" repeatto="0" sid="569611378354300" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\itch io shit game jam\sound_off.png" />
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="sprites">

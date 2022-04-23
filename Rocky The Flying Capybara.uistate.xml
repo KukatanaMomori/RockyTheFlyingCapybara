@@ -10,9 +10,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="1">lvl1</layout>
+        <layout active="1" order="1">lvl1</layout>
         <layout order="2">main menu</layout>
-        <event-sheet active="1" order="0">controls</event-sheet>
+        <event-sheet order="0">controls</event-sheet>
         <event-sheet order="3">main menu events</event-sheet>
     </open-tabs>
     <properties>
@@ -25,7 +25,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
         <folder expanded="1" path="object-folder/text/" />
-        <folder expanded="0" path="object-folder/buttons/" />
+        <folder expanded="1" path="object-folder/buttons/" />
         <folder expanded="1" path="object-folder/sprites/" />
         <folder expanded="0" path="object-folder/input/others/" />
         <folder expanded="1" path="layout-folder/" />
@@ -34,6 +34,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="0" path="sound-folder/" />
         <folder expanded="0" path="music-folder/" />
         <folder expanded="1" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/music_btn/" />
         <folder expanded="1" path="animation-folder/Sprite/" />
         <folder expanded="1" path="animation-folder/Sprite2/" />
         <folder expanded="1" path="animation-folder/capybara/" />

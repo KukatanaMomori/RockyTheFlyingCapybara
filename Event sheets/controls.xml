@@ -469,49 +469,61 @@
                     </actions>
                 </event-block>
                 <comment>mute/unmute music</comment>
-                <event-block sid="624553868896417">
-                    <conditions>
-                        <condition id="0" name="On clicked" sid="215071469322757" type="music_on_off" />
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="362125922586571">
-                            <conditions>
-                                <condition id="-14" name="Compare variable" sid="357942527171110" type="System">
-                                    <param id="0" name="Variable">music</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="2" name="Set muted" sid="921840498147424" type="Audio">
-                                    <param id="0" name="Tag">&quot;calm&quot;</param>
-                                    <param id="1" name="State">0</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="154931367841490" type="System">
-                                    <param id="0" name="Variable">music</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="634887540112206">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="894510266922772" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="2" name="Set muted" sid="219682107760266" type="Audio">
-                                    <param id="0" name="Tag">&quot;calm&quot;</param>
-                                    <param id="1" name="State">1</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="866365363449802" type="System">
-                                    <param id="0" name="Variable">music</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="359306224233729">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="979161419758126" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">music_btn</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="362125922586571">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="357942527171110" type="System">
+                            <param id="0" name="Variable">music</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set muted" sid="921840498147424" type="Audio">
+                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="154931367841490" type="System">
+                            <param id="0" name="Variable">music</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="260557984675122" type="music_btn">
+                            <param id="0" name="Animation">&quot;mute&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="634887540112206">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="894510266922772" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set muted" sid="219682107760266" type="Audio">
+                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="866365363449802" type="System">
+                            <param id="0" name="Variable">music</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="236903381081699" type="music_btn">
+                            <param id="0" name="Animation">&quot;unmute&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>
