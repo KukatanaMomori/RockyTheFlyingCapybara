@@ -834,6 +834,9 @@
                 <condition id="0" name="On collision with another object" sid="367619076650105" type="capybara">
                     <param id="0" name="Object">spear_smaller</param>
                 </condition>
+                <condition id="0" name="On collision with another object" sid="459151241576763" type="capybara">
+                    <param id="0" name="Object">tile</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-15" name="Set visible" sid="188743975710402" type="capybara">
@@ -1034,6 +1037,19 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <event-block sid="984695303889324">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="608514571449997" type="collider_checkpoint">
+                                    <param id="0" name="Unique ID">82</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="767563895006759" type="chekcpoint">
+                                    <param id="0" name="X">7738.5</param>
+                                    <param id="1" name="Y">274.736</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
             </sub-events>
@@ -1107,72 +1123,186 @@
             </actions>
         </event-block>
         <comment>checkpoint 1</comment>
-        <event-block sid="340338362081903">
+        <event-group description="" sid="924898720545620" title="shuriken">
+            <sub-events>
+                <event-block sid="994589229276140">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="198368153466637" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="234855035001954" type="tile">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="280003878291862">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="648609423503589" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="736588006259509" type="tile">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="641813378106824" title="teleport to checkpoint">
+            <sub-events>
+                <event-block sid="340338362081903">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="341929232961525" type="Keyboard">
+                            <param id="0" name="Key">49</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="547036802406460" type="Keyboard">
+                            <param id="0" name="Key">17</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="724874865302101" type="capybara">
+                            <param id="0" name="X">1379.465</param>
+                            <param id="1" name="Y"> 242.239</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>checkpoint 2</comment>
+                <event-block sid="937240424501756">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="755221112989245" type="Keyboard">
+                            <param id="0" name="Key">50</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="604570125900933" type="Keyboard">
+                            <param id="0" name="Key">17</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="966094275297357" type="capybara">
+                            <param id="0" name="X">2602.682</param>
+                            <param id="1" name="Y">279.146</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>checkpoint 3</comment>
+                <event-block sid="260755579603597">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="743340106051794" type="Keyboard">
+                            <param id="0" name="Key">51</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="981244166299656" type="Keyboard">
+                            <param id="0" name="Key">17</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="757193799243779" type="capybara">
+                            <param id="0" name="X">2756.205</param>
+                            <param id="1" name="Y">116.056</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>checkpoint 4</comment>
+                <event-block sid="588514479887544">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="658899560957585" type="Keyboard">
+                            <param id="0" name="Key">52</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="682057819959952" type="Keyboard">
+                            <param id="0" name="Key">17</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="674635465609944" type="capybara">
+                            <param id="0" name="X">4726.31</param>
+                            <param id="1" name="Y">282.341</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>checkpoint 5</comment>
+                <event-block sid="444746860136152">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="390774746079947" type="Keyboard">
+                            <param id="0" name="Key">53</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="905824541006341" type="Keyboard">
+                            <param id="0" name="Key">17</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="190683279268095" type="capybara">
+                            <param id="0" name="X">7738.5</param>
+                            <param id="1" name="Y">274.736</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="187010386229342">
             <conditions>
-                <condition id="0" name="On key pressed" sid="341929232961525" type="Keyboard">
-                    <param id="0" name="Key">49</param>
-                </condition>
-                <condition id="2" name="Key is down" sid="547036802406460" type="Keyboard">
-                    <param id="0" name="Key">17</param>
+                <condition id="1" name="Is overlapping another object" sid="578352522417889" type="capybara">
+                    <param id="0" name="Object">shuriken_colide1</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-3" name="Set position" sid="724874865302101" type="capybara">
-                    <param id="0" name="X">1379.465</param>
-                    <param id="1" name="Y"> 242.239</param>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="302629045019174" type="tile">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="806829783868538" type="System">
+                    <param id="0" name="Seconds">1.0</param>
                 </action>
             </actions>
-        </event-block>
-        <comment>checkpoint 2</comment>
-        <event-block sid="937240424501756">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="755221112989245" type="Keyboard">
-                    <param id="0" name="Key">50</param>
-                </condition>
-                <condition id="2" name="Key is down" sid="604570125900933" type="Keyboard">
-                    <param id="0" name="Key">17</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Set position" sid="966094275297357" type="capybara">
-                    <param id="0" name="X">2602.682</param>
-                    <param id="1" name="Y">279.146</param>
-                </action>
-            </actions>
-        </event-block>
-        <comment>checkpoint 3</comment>
-        <event-block sid="260755579603597">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="743340106051794" type="Keyboard">
-                    <param id="0" name="Key">51</param>
-                </condition>
-                <condition id="2" name="Key is down" sid="981244166299656" type="Keyboard">
-                    <param id="0" name="Key">17</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Set position" sid="757193799243779" type="capybara">
-                    <param id="0" name="X">2756.205</param>
-                    <param id="1" name="Y">116.056</param>
-                </action>
-            </actions>
-        </event-block>
-        <comment>checkpoint 4</comment>
-        <event-block sid="588514479887544">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="658899560957585" type="Keyboard">
-                    <param id="0" name="Key">52</param>
-                </condition>
-                <condition id="2" name="Key is down" sid="682057819959952" type="Keyboard">
-                    <param id="0" name="Key">17</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Set position" sid="674635465609944" type="capybara">
-                    <param id="0" name="X">4726.31</param>
-                    <param id="1" name="Y">282.341</param>
-                </action>
-            </actions>
+            <sub-events>
+                <event-block sid="428851461364853">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="112063073074776" type="tile">
+                            <param id="0" name="Unique ID">69</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="905459098900162" type="tile">
+                            <param id="0" name="X">6110.142</param>
+                            <param id="1" name="Y">-32.33</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="705031364112696">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="724362205167308" type="tile">
+                            <param id="0" name="Unique ID">70</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="783814014042846" type="tile">
+                            <param id="0" name="X">6172.366</param>
+                            <param id="1" name="Y">-33.006</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="725514057071225">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="957422517493333" type="tile">
+                            <param id="0" name="Unique ID">71</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="184538486738545" type="tile">
+                            <param id="0" name="X">6223.765</param>
+                            <param id="1" name="Y">-33.006</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="968094066712809">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="326962277292949" type="tile">
+                            <param id="0" name="Unique ID">72</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="910628266590860" type="tile">
+                            <param id="0" name="X">6281.906</param>
+                            <param id="1" name="Y">-32.33</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

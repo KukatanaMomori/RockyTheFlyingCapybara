@@ -1359,6 +1359,11 @@
         </object-type>
         <object-type name="tile" sid="951422683316781">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="862643926452574">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="9" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="900676465587291" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\trap assets\sprite\tile000.png">
@@ -1381,6 +1386,14 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\trap assets\sprite\tile005.png" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\trap assets\sprite\tile006.png" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Capybara game\trap assets\sprite\tile007.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="shuriken_colide1" sid="575666117392267">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="109361075775160" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
