@@ -799,6 +799,86 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block sid="612880176761347">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="853553485195836" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="658680040565142">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="402146358128163" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-27" name="Set effect enabled" sid="134884230996526" type="capybara">
+                                            <param id="0" name="Mode">1</param>
+                                            <param id="1" name="Effect">&quot;Contrast&quot;</param>
+                                        </action>
+                                        <action id="-27" name="Set effect enabled" sid="701381364599117" type="capybara">
+                                            <param id="0" name="Mode">1</param>
+                                            <param id="1" name="Effect">&quot;Brightness&quot;</param>
+                                        </action>
+                                        <action id="-28" name="Set effect parameter" sid="526478352544749" type="capybara">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">110</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="430561954462068">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="819565633893927" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="930808914061100">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="245892706471012" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-28" name="Set effect parameter" sid="696982150655255" type="capybara">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">150</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="520208392271722">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="496656006082682" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">15</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="198755043491694">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="689185317419917" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-28" name="Set effect parameter" sid="919133128946609" type="capybara">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">250</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                     </sub-events>
                 </event-group>
                 <comment>mute/unmute music</comment>
@@ -1025,6 +1105,11 @@
             <actions>
                 <action id="-2" name="Go to layout" sid="154635211435459" type="System">
                     <param id="0" name="Layout">lvl1</param>
+                </action>
+                <action id="-28" name="Set effect parameter" sid="773793105274180" type="capybara">
+                    <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
                 </action>
                 <action id="-9" name="Set value" sid="139873244546695" type="System">
                     <param id="0" name="Variable">fuel</param>

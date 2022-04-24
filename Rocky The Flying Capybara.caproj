@@ -2,7 +2,7 @@
 <c2project>
     <name>Rocky The Flying Capybara</name>
     <description></description>
-    <version>1.03f</version>
+    <version>1.04f</version>
     <author></author>
     <author-email></author-email>
     <author-website></author-website>
@@ -292,6 +292,14 @@
                         <behavior id="Bullet" />
                     </behavior-type>
                 </behaviors>
+                <effects>
+                    <effect-type name="Contrast">
+                        <effect id="contrast" />
+                    </effect-type>
+                    <effect-type name="Brightness">
+                        <effect id="brightness" />
+                    </effect-type>
+                </effects>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="644943541640811" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.504505" original-source="C:\Users\swraz\Desktop\capybara_default.png">

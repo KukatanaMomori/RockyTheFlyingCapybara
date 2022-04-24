@@ -36,6 +36,11 @@
                     <param id="1" name="Parameter index">0</param>
                     <param id="2" name="Value">100</param>
                 </action>
+                <action id="-28" name="Set effect parameter" sid="583351927393214" type="capybara">
+                    <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
+                </action>
             </actions>
         </event-block>
     </events>
