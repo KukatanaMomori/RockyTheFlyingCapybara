@@ -9,6 +9,31 @@
         <variable constant="0" name="hit" sid="746409269314341" static="0" type="number">0</variable>
         <variable constant="0" name="is_jumping" sid="916316528368032" static="0" type="number">0</variable>
         <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">25</variable>
+        <event-group description="" sid="638378658292073" title="Particles">
+            <sub-events>
+                <event-block sid="497648414875990">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="711422971761819" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="471896850706259" type="rocket_fire">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="229606843313310" type="rocket_fire">
+                            <param id="0" name="Pin to">capybara</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="255325781334111" type="Particles">
+                            <param id="0" name="Pin to">capybara</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="108142225431816" type="Particles">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="471636627204927" title="display text - game UI">
             <sub-events>
                 <event-block sid="831791603918360">
@@ -259,45 +284,6 @@
                             </sub-events>
                         </event-block>
                         <comment>rocket double jump</comment>
-                        <event-block sid="411698175662773">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="642401115808866" type="Keyboard">
-                                    <param id="0" name="Key">32</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="921492291358365" type="System">
-                                    <param id="0" name="Variable">is_jumping</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="554988126012897" type="System">
-                                    <param id="0" name="Variable">fuel</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="366723624199962">
-                                    <conditions>
-                                        <condition id="-4" name="Trigger once while true" sid="369007017228822" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="0" name="Play" sid="104623038813693" type="Audio">
-                                            <param id="0" name="Audio file">rocket</param>
-                                            <param id="2" name="Loop">0</param>
-                                            <param id="3" name="Volume">0</param>
-                                            <param id="1" name="Tag (optional)">&quot;rocket&quot;</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="924719776942161" type="System">
-                                            <param id="0" name="Seconds">0.7</param>
-                                        </action>
-                                        <action id="6" name="Stop" sid="224276247633748" type="Audio">
-                                            <param id="0" name="Tag">&quot;rocket&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
                         <event-block sid="751744434145771">
                             <conditions>
                                 <condition id="0" name="On key pressed" sid="901077834474052" type="Keyboard">
@@ -356,6 +342,123 @@
                                     <param id="1" name="From">1</param>
                                 </action>
                             </actions>
+                        </event-block>
+                        <event-block sid="411698175662773">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="642401115808866" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="921492291358365" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="554988126012897" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="7" name="Is mirrored" sid="958934114333241" type="capybara" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="322792688578891">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="259156200337111" type="rocket_fire">
+                                            <param id="0" name="Unique ID">103</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="673177239305760" type="rocket_fire">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="448943741819166" type="System">
+                                            <param id="0" name="Seconds">0.7</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="565210260604612" type="rocket_fire">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="567739566215248">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="712159588455610" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="297799760986665" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="196283633348438" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="7" inverted="1" name="Is mirrored" sid="524701559460660" type="capybara" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="240106925906949">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="709827478129023" type="rocket_fire">
+                                            <param id="0" name="Unique ID">96</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="443047223341243" type="rocket_fire">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="186218959711979" type="System">
+                                            <param id="0" name="Seconds">0.7</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="969757151583293" type="rocket_fire">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="149926032962086">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="792512648854386" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="596986101873346" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="304316542208908" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="689923703664162">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="370541792089592" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="500757303175114" type="Audio">
+                                            <param id="0" name="Audio file">rocket</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;rocket&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="226822085205211" type="System">
+                                            <param id="0" name="Seconds">0.7</param>
+                                        </action>
+                                        <action id="6" name="Stop" sid="357825365539785" type="Audio">
+                                            <param id="0" name="Tag">&quot;rocket&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>
@@ -528,6 +631,31 @@
                         <action id="4" name="Set animation" sid="389505940128473" type="capybara">
                             <param id="0" name="Animation">&quot;hit&quot;</param>
                             <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="469689874358674">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="996523978217240" type="System">
+                            <param id="0" name="Variable">falling</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="272849771764022" type="System">
+                            <param id="0" name="Variable">hit</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="939753102102634" type="Particles">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="836444356979569" type="System">
+                            <param id="0" name="Seconds">0.7</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="563551237672076" type="Particles">
+                            <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -758,7 +886,7 @@
                 </action>
                 <action id="-10" name="Add to" sid="371202431577538" type="System">
                     <param id="0" name="Variable">fuel</param>
-                    <param id="1" name="Value">5</param>
+                    <param id="1" name="Value">10</param>
                 </action>
                 <action id="-15" name="Set visible" sid="801106100114638" type="consume">
                     <param id="0" name="Visibility">0</param>
@@ -932,6 +1060,14 @@
             <actions>
                 <action id="-2" name="Go to layout" sid="307058235131426" type="System">
                     <param id="0" name="Layout">main menu</param>
+                </action>
+                <action id="-9" name="Set value" sid="859483564241838" type="System">
+                    <param id="0" name="Variable">fuel</param>
+                    <param id="1" name="Value">25</param>
+                </action>
+                <action id="-9" name="Set value" sid="875627063384436" type="System">
+                    <param id="0" name="Variable">death</param>
+                    <param id="1" name="Value">0</param>
                 </action>
             </actions>
         </event-block>

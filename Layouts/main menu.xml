@@ -72,7 +72,7 @@
             <instances>
                 <instance type="version" uid="47">
                     <properties>
-                        <text>1.03f</text>
+                        <text>1.03f1</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-13,400,0</font>
                         <color>204,255,255</color>
@@ -85,7 +85,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>598.370361328</x>
+                        <x>592.782409668</x>
                         <y>302.369445801</y>
                         <z>0</z>
                         <width>49.284851074</width>
