@@ -72,7 +72,7 @@
             <instances>
                 <instance type="version" uid="47">
                     <properties>
-                        <text>1.02</text>
+                        <text>1.03f</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-13,400,0</font>
                         <color>204,255,255</color>
