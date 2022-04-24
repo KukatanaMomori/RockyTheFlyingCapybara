@@ -709,8 +709,8 @@
                         <collision-poly>
                             <point x="0" y="0.364583" />
                             <point x="1" y="0.34375" />
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
+                            <point x="1" y="0.908854" />
+                            <point x="0" y="0.911458" />
                         </collision-poly>
                     </tile>
                     <tile id="5">
@@ -804,6 +804,22 @@
                             <point x="0.161459" y="0.046875" />
                             <point x="0.625001" y="0.291667" />
                             <point x="1" y="0.484375" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="147">
+                        <collision-poly>
+                            <point x="0.333333" y="0.78125" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="148">
+                        <collision-poly>
+                            <point x="0" y="0.520833" />
+                            <point x="1" y="0" />
                             <point x="1" y="1" />
                             <point x="0" y="1" />
                         </collision-poly>
@@ -1307,15 +1323,51 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="capybaraHotSpring" sid="364371914295055">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="135258606157924">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="681266702771138" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\swraz\Desktop\capybara hot spring.png">
+                        <collision-poly>
+                            <point x="0.915625" y="0.5" />
+                            <point x="0.925" y="0.866667" />
+                            <point x="0.075" y="0.866667" />
+                            <point x="0.00937498" y="0.5" />
+                            <point x="0.30625" y="0.544444" />
+                            <point x="0.5" y="0.538889" />
+                            <point x="0.69375" y="0.544444" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="621198151471565">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="finish" sid="185573841242192">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="560062188986322" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>lvl1.xml</layout>
         <layout>main menu.xml</layout>
+        <layout>thanks.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>controls.xml</event-sheet>
         <event-sheet>main menu events.xml</event-sheet>
+        <event-sheet>thansk.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />
