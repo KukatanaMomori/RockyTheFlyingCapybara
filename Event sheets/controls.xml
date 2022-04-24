@@ -8,7 +8,7 @@
         <variable constant="0" name="falling" sid="122607971621720" static="0" type="number">0</variable>
         <variable constant="0" name="hit" sid="746409269314341" static="0" type="number">0</variable>
         <variable constant="0" name="is_jumping" sid="916316528368032" static="0" type="number">0</variable>
-        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">15</variable>
+        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">25</variable>
         <event-group description="" sid="471636627204927" title="display text - game UI">
             <sub-events>
                 <event-block sid="831791603918360">
@@ -380,9 +380,6 @@
                                 <condition id="2" name="Key is down" sid="111170556304129" type="Keyboard">
                                     <param id="0" name="Key">39</param>
                                 </condition>
-                                <condition id="2" name="Key is down" sid="199275968726271" type="Keyboard">
-                                    <param id="0" name="Key">68</param>
-                                </condition>
                             </conditions>
                             <actions>
                                 <action behavior="Platform" id="11" name="Set enabled" sid="988261853494951" type="capybara">
@@ -430,9 +427,6 @@
                                 <condition id="2" name="Key is down" sid="787338641897634" type="Keyboard">
                                     <param id="0" name="Key">37</param>
                                 </condition>
-                                <condition id="2" name="Key is down" sid="266628373280474" type="Keyboard">
-                                    <param id="0" name="Key">65</param>
-                                </condition>
                             </conditions>
                             <actions>
                                 <action behavior="Platform" id="11" name="Set enabled" sid="250359142485188" type="capybara">
@@ -478,9 +472,6 @@
                         <comment>released</comment>
                         <event-block any="1" sid="992582273600630">
                             <conditions>
-                                <condition id="3" name="On key released" sid="614786850814399" type="Keyboard">
-                                    <param id="0" name="Key">68</param>
-                                </condition>
                                 <condition id="3" name="On key released" sid="720520544392817" type="Keyboard">
                                     <param id="0" name="Key">39</param>
                                 </condition>
@@ -820,6 +811,11 @@
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="851981975071764" type="capybara">
+                            <param id="0" name="Magnitude">20</param>
+                            <param id="1" name="Duration">0.4</param>
+                            <param id="2" name="Mode">1</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -882,14 +878,18 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="2" name="Set visible" sid="469908314677852" type="Restart">
+                <action id="-15" name="Set visible" sid="469908314677852" type="restart2">
                     <param id="0" name="Visibility">1</param>
                 </action>
             </actions>
         </event-block>
         <event-block sid="335018059350157">
             <conditions>
-                <condition id="0" name="On clicked" sid="817018834562833" type="Restart" />
+                <condition id="6" name="On object clicked" sid="817018834562833" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">restart2</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-2" name="Go to layout" sid="154635211435459" type="System">
@@ -897,7 +897,7 @@
                 </action>
                 <action id="-9" name="Set value" sid="139873244546695" type="System">
                     <param id="0" name="Variable">fuel</param>
-                    <param id="1" name="Value">10</param>
+                    <param id="1" name="Value">25</param>
                 </action>
                 <action id="-9" name="Set value" sid="999026126211647" type="System">
                     <param id="0" name="Variable">death</param>
@@ -915,6 +915,20 @@
                     <param id="0" name="Effect">&quot;Contrast&quot;</param>
                     <param id="1" name="Parameter index">0</param>
                     <param id="2" name="Value">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="671400520011112">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="490526973660897" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">home</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="307058235131426" type="System">
+                    <param id="0" name="Layout">main menu</param>
                 </action>
             </actions>
         </event-block>
@@ -992,10 +1006,15 @@
                 <event-block sid="485350005941320">
                     <conditions>
                         <condition id="-14" name="Pick by unique ID" sid="964606636986294" type="collider_checkpoint">
-                            <param id="0" name="Unique ID">36</param>
+                            <param id="0" name="Unique ID">59</param>
                         </condition>
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action id="-3" name="Set position" sid="407869920407968" type="chekcpoint">
+                            <param id="0" name="X">2756.205</param>
+                            <param id="1" name="Y">116.056</param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="820715330912289">
                     <conditions>

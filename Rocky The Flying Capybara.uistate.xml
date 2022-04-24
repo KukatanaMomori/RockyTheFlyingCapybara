@@ -25,25 +25,30 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
         <folder expanded="1" path="object-folder/text/" />
-        <folder expanded="1" path="object-folder/buttons/" />
-        <folder expanded="1" path="object-folder/sprites/" />
+        <folder expanded="0" path="object-folder/buttons/" />
+        <folder expanded="0" path="object-folder/sprites/" />
         <folder expanded="0" path="object-folder/input/others/" />
+        <folder expanded="0" path="object-folder/tilemaps/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="0" path="music-folder/" />
         <folder expanded="1" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/rockyTheFlyingCapybara/" />
         <folder expanded="1" path="animation-folder/music_btn/" />
+        <folder expanded="1" path="animation-folder/restart2/" />
+        <folder expanded="1" path="animation-folder/start/" />
+        <folder expanded="1" path="animation-folder/left_ar/" />
+        <folder expanded="1" path="animation-folder/right_ar/" />
+        <folder expanded="1" path="animation-folder/home/" />
+        <folder expanded="1" path="animation-folder/E/" />
+        <folder expanded="1" path="animation-folder/space/" />
         <folder expanded="1" path="animation-folder/Sprite/" />
         <folder expanded="1" path="animation-folder/wall_hit/" />
         <folder expanded="1" path="animation-folder/capybara/" />
-        <folder expanded="1" path="animation-folder/left_ar/" />
-        <folder expanded="1" path="animation-folder/right_ar/" />
-        <folder expanded="1" path="animation-folder/space/" />
         <folder expanded="1" path="animation-folder/rocket/" />
         <folder expanded="1" path="animation-folder/weed/" />
-        <folder expanded="1" path="animation-folder/E/" />
         <folder expanded="1" path="animation-folder/collider_checkpoint/" />
         <folder expanded="1" path="animation-folder/spearRight/" />
         <folder expanded="1" path="animation-folder/spearRight2/" />
@@ -51,5 +56,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/chekcpoint/" />
         <folder expanded="1" path="animation-folder/spearRight3/" />
         <folder expanded="1" path="animation-folder/spearRight4/" />
+        <folder expanded="1" path="animation-folder/capybaraMenu/" />
     </folders-expanded>
 </c2uistate>
