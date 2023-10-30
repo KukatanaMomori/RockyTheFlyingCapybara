@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>controls</name>
     <events>
+        <variable constant="0" name="isGrounded" sid="441450010580283" static="0" type="number">0</variable>
         <variable constant="0" name="music" sid="328653317859592" static="0" type="number">0</variable>
         <variable constant="0" name="death" sid="311713667994832" static="0" type="number">0</variable>
         <variable constant="0" name="falling" sid="122607971621720" static="0" type="number">0</variable>
@@ -94,31 +95,22 @@
             <sub-events>
                 <event-block sid="100627366644183">
                     <conditions>
-                        <condition id="1" name="Is overlapping another object" sid="204619378544320" type="capybara">
+                        <condition id="0" name="On collision with another object" sid="204619378544320" type="capybara">
                             <param id="0" name="Object">wall_hit</param>
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="0" name="Play" sid="810268599156594" type="Audio">
+                            <param id="0" name="Audio file">hit</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;hit&quot;</param>
+                        </action>
                         <action id="-9" name="Set value" sid="806347833107361" type="System">
                             <param id="0" name="Variable">hit</param>
                             <param id="1" name="Value">1</param>
                         </action>
                     </actions>
-                    <sub-events>
-                        <event-block sid="925805071886795">
-                            <conditions>
-                                <condition id="-4" name="Trigger once while true" sid="524434385877470" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Play" sid="810268599156594" type="Audio">
-                                    <param id="0" name="Audio file">hit</param>
-                                    <param id="2" name="Loop">0</param>
-                                    <param id="3" name="Volume">0</param>
-                                    <param id="1" name="Tag (optional)">&quot;hit&quot;</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
                 <event-block sid="674223035637849">
                     <conditions>
@@ -266,6 +258,10 @@
                                     <param id="0" name="Animation">&quot;default&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="307188030861220" type="System">
+                                    <param id="0" name="Variable">isGrounded</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="976102017967072">
@@ -283,6 +279,21 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block sid="693518046916223">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="517014927084505" type="System">
+                                    <param id="0" name="Variable">is_jumping</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="373116531244476" type="System">
+                                    <param id="0" name="Variable">isGrounded</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <comment>rocket double jump</comment>
                         <event-block sid="751744434145771">
                             <conditions>
@@ -298,6 +309,11 @@
                                     <param id="0" name="Variable">fuel</param>
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="527035645069731" type="System">
+                                    <param id="0" name="Variable">isGrounded</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -797,6 +813,17 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="306368992003880">
+                                    <conditions>
+                                        <condition id="-1" name="Every tick" sid="430582952736908" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="361173177292369" type="System">
+                                            <param id="0" name="Variable">death</param>
+                                            <param id="1" name="Value">24</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                             </sub-events>
                         </event-block>
                         <event-block sid="612880176761347">
@@ -960,21 +987,7 @@
                     <param id="0" name="Object">weed</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="-15" name="Set visible" sid="936408448107289" type="weed">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-                <action id="-10" name="Add to" sid="371202431577538" type="System">
-                    <param id="0" name="Variable">fuel</param>
-                    <param id="1" name="Value">10</param>
-                </action>
-                <action id="-15" name="Set visible" sid="801106100114638" type="consume">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-                <action id="-15" name="Set visible" sid="409522151432472" type="E">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
                 <event-block sid="301617701338070">
                     <conditions>
@@ -987,42 +1000,16 @@
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
-        <event-block any="1" sid="916440919168999">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="932219684483349" type="capybara">
-                    <param id="0" name="Object">spikes</param>
-                </condition>
-                <condition id="0" name="On collision with another object" sid="231532016332996" type="capybara">
-                    <param id="0" name="Object">spear</param>
-                </condition>
-                <condition id="0" name="On collision with another object" sid="271666499003179" type="capybara">
-                    <param id="0" name="Object">spear_big</param>
-                </condition>
-                <condition id="0" name="On collision with another object" sid="692200032695996" type="capybara">
-                    <param id="0" name="Object">spear_smaller</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="916587143926357">
-                    <conditions>
-                        <condition id="-4" name="Trigger once while true" sid="762036477319545" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Play" sid="859888879617293" type="Audio">
-                            <param id="0" name="Audio file">ded</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        <action id="-9" name="Destroy" sid="152177888070464" type="weed" />
+                        <action id="-10" name="Add to" sid="371202431577538" type="System">
+                            <param id="0" name="Variable">fuel</param>
+                            <param id="1" name="Value">10</param>
                         </action>
-                        <action behavior="ScrollTo" id="0" name="Shake" sid="851981975071764" type="capybara">
-                            <param id="0" name="Magnitude">20</param>
-                            <param id="1" name="Duration">0.4</param>
-                            <param id="2" name="Mode">1</param>
+                        <action id="-15" name="Set visible" sid="801106100114638" type="consume">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="409522151432472" type="E">
+                            <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1047,11 +1034,19 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="0" name="Play" sid="859888879617293" type="Audio">
+                    <param id="0" name="Audio file">ded</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="851981975071764" type="capybara">
+                    <param id="0" name="Magnitude">20</param>
+                    <param id="1" name="Duration">0.4</param>
+                    <param id="2" name="Mode">1</param>
+                </action>
                 <action id="-15" name="Set visible" sid="188743975710402" type="capybara">
                     <param id="0" name="Visibility">0</param>
-                </action>
-                <action id="-16" name="Wait" sid="644184156972032" type="System">
-                    <param id="0" name="Seconds">0.1</param>
                 </action>
                 <action id="-10" name="Add to" sid="763067144257986" type="System">
                     <param id="0" name="Variable">death</param>
@@ -1063,9 +1058,6 @@
                 </action>
                 <action behavior="Platform" id="11" name="Set enabled" sid="277899448704308" type="capybara">
                     <param id="0" name="State">0</param>
-                </action>
-                <action id="-16" name="Wait" sid="477648290275699" type="System">
-                    <param id="0" name="Seconds">0.2</param>
                 </action>
                 <action id="-15" name="Set visible" sid="519626812648860" type="capybara">
                     <param id="0" name="Visibility">1</param>
