@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>UI</name>
+    <events>
+        <event-group description="" sid="906699837237173" title="display text - game UI">
+            <sub-events>
+                <event-block sid="639945164766090">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="977577958501806" type="System">
+                            <param id="0" name="Variable">death</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="811727233613571" type="Death">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="620645213295451" type="wall_jump_troll">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="158037979248613">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="360667128796160" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="548544164430567" type="fuel_text">
+                            <param id="0" name="Text">&quot;Fuel: &quot;&amp;int(fuel)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="905268265544564" type="fuel_text">
+                            <param id="0" name="Text">int(fuel)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="176616891401812" type="Death">
+                            <param id="0" name="Text">&quot;Uncanny Counter: &quot;&amp;int(death)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>disable rocket jump</comment>
+                <event-block sid="448258094867919">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="812417175205551" type="System" />
+                        <condition id="-14" name="Compare variable" sid="848052650370470" type="System">
+                            <param id="0" name="Variable">fuel</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="429973050185409" type="fuel_text">
+                            <param id="0" name="Text">&quot;?&quot;</param>
+                        </action>
+                        <action behavior="Platform" id="13" name="Set double-jump" sid="115090687243731" type="capybara">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

@@ -10,10 +10,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="1">lvl1</layout>
-        <layout active="1" order="2">main menu</layout>
-        <event-sheet order="3">controls</event-sheet>
-        <event-sheet order="4">thansk</event-sheet>
+        <layout order="0">lvl1</layout>
+        <layout order="1">main menu</layout>
+        <event-sheet active="1" order="2">main</event-sheet>
+        <event-sheet order="3">thansk</event-sheet>
+        <event-sheet order="4">sounds</event-sheet>
+        <event-sheet order="5">UI</event-sheet>
+        <event-sheet order="6">capybara_controls</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

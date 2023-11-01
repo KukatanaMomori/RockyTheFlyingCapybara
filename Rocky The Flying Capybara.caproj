@@ -1437,9 +1437,12 @@
         <layout>thanks.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>controls.xml</event-sheet>
+        <event-sheet>main.xml</event-sheet>
         <event-sheet>main menu events.xml</event-sheet>
         <event-sheet>thansk.xml</event-sheet>
+        <event-sheet>sounds.xml</event-sheet>
+        <event-sheet>UI.xml</event-sheet>
+        <event-sheet>capybara_controls.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />

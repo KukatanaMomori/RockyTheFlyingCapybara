@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>main</name>
+    <events>
+        <include>capybara_controls</include>
+        <include>sounds</include>
+        <include>UI</include>
+        <variable constant="0" name="isGrounded" sid="441450010580283" static="0" type="number">0</variable>
+        <variable constant="0" name="music" sid="328653317859592" static="0" type="number">0</variable>
+        <variable constant="0" name="death" sid="311713667994832" static="0" type="number">0</variable>
+        <variable constant="0" name="falling" sid="122607971621720" static="0" type="number">0</variable>
+        <variable constant="0" name="hit" sid="746409269314341" static="0" type="number">0</variable>
+        <variable constant="0" name="is_jumping" sid="916316528368032" static="0" type="number">0</variable>
+        <variable constant="0" name="fuel" sid="148959274494691" static="0" type="number">25</variable>
+        <event-group description="" sid="785946915700092" title="death">
+            <sub-events>
+                <event-block any="1" sid="418355483373089">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="781993973117575" type="capybara">
+                            <param id="0" name="Object">spikes</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="340870539574959" type="capybara">
+                            <param id="0" name="Object">spear</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="833448668172794" type="capybara">
+                            <param id="0" name="Object">spear_big</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="367619076650105" type="capybara">
+                            <param id="0" name="Object">spear_smaller</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="459151241576763" type="capybara">
+                            <param id="0" name="Object">tile</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="859888879617293" type="Audio">
+                            <param id="0" name="Audio file">ded</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="851981975071764" type="capybara">
+                            <param id="0" name="Magnitude">20</param>
+                            <param id="1" name="Duration">0.4</param>
+                            <param id="2" name="Mode">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="188743975710402" type="capybara">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="763067144257986" type="System">
+                            <param id="0" name="Variable">death</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="460898573541641" type="System">
+                            <param id="0" name="Variable">fuel</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                        <action behavior="Platform" id="11" name="Set enabled" sid="277899448704308" type="capybara">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="519626812648860" type="capybara">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="834947300198252" type="capybara">
+                            <param id="0" name="Object">chekcpoint</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="721679146080804" type="capybara">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="933800629881006" title="cheats">
+            <sub-events>
+                <event-group description="" sid="641813378106824" title="teleport to checkpoint">
+                    <sub-events>
+                        <event-block sid="340338362081903">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="341929232961525" type="Keyboard">
+                                    <param id="0" name="Key">49</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="547036802406460" type="Keyboard">
+                                    <param id="0" name="Key">17</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="724874865302101" type="capybara">
+                                    <param id="0" name="X">1379.465</param>
+                                    <param id="1" name="Y"> 242.239</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>checkpoint 2</comment>
+                        <event-block sid="937240424501756">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="755221112989245" type="Keyboard">
+                                    <param id="0" name="Key">50</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="604570125900933" type="Keyboard">
+                                    <param id="0" name="Key">17</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="966094275297357" type="capybara">
+                                    <param id="0" name="X">2602.682</param>
+                                    <param id="1" name="Y">279.146</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>checkpoint 3</comment>
+                        <event-block sid="260755579603597">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="743340106051794" type="Keyboard">
+                                    <param id="0" name="Key">51</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="981244166299656" type="Keyboard">
+                                    <param id="0" name="Key">17</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="757193799243779" type="capybara">
+                                    <param id="0" name="X">2756.205</param>
+                                    <param id="1" name="Y">116.056</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>checkpoint 4</comment>
+                        <event-block sid="588514479887544">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="658899560957585" type="Keyboard">
+                                    <param id="0" name="Key">52</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="682057819959952" type="Keyboard">
+                                    <param id="0" name="Key">17</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="674635465609944" type="capybara">
+                                    <param id="0" name="X">4726.31</param>
+                                    <param id="1" name="Y">282.341</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>checkpoint 5</comment>
+                        <event-block sid="444746860136152">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="390774746079947" type="Keyboard">
+                                    <param id="0" name="Key">53</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="905824541006341" type="Keyboard">
+                                    <param id="0" name="Key">17</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="190683279268095" type="capybara">
+                                    <param id="0" name="X">7738.5</param>
+                                    <param id="1" name="Y">274.736</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="566708357968968">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="929027329638771" type="Keyboard">
+                            <param id="0" name="Key">114</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="353574267673790" type="System">
+                            <param id="0" name="Variable">death</param>
+                            <param id="1" name="Value">-999</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="953481539068274" type="System">
+                            <param id="0" name="Variable">fuel</param>
+                            <param id="1" name="Value">999</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="713347769537923" type="Death">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="12" name="Remove all effects" sid="380502369728503" type="Audio">
+                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                        </action>
+                        <action id="-31" name="Set layout effect parameter" sid="712114809490566" type="System">
+                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">100</param>
+                        </action>
+                        <action id="-31" name="Set layout effect parameter" sid="590405117074431" type="System">
+                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">100</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="808808794401096" type="restart2">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="924898720545620" title="shuriken">
+            <sub-events>
+                <event-block sid="187010386229342">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="578352522417889" type="capybara">
+                            <param id="0" name="Object">shuriken_colide1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="302629045019174" type="tile">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="806829783868538" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="428851461364853">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="112063073074776" type="tile">
+                                    <param id="0" name="Unique ID">69</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="905459098900162" type="tile">
+                                    <param id="0" name="X">6110.142</param>
+                                    <param id="1" name="Y">-32.33</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="705031364112696">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="724362205167308" type="tile">
+                                    <param id="0" name="Unique ID">70</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="783814014042846" type="tile">
+                                    <param id="0" name="X">6172.366</param>
+                                    <param id="1" name="Y">-33.006</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="725514057071225">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="957422517493333" type="tile">
+                                    <param id="0" name="Unique ID">71</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="184538486738545" type="tile">
+                                    <param id="0" name="X">6223.765</param>
+                                    <param id="1" name="Y">-33.006</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="968094066712809">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="326962277292949" type="tile">
+                                    <param id="0" name="Unique ID">72</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="910628266590860" type="tile">
+                                    <param id="0" name="X">6281.906</param>
+                                    <param id="1" name="Y">-32.33</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="994589229276140">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="198368153466637" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="234855035001954" type="tile">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="280003878291862">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="648609423503589" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="736588006259509" type="tile">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="631751261094022" title="add fuel">
+            <sub-events>
+                <event-block sid="315237005620619">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="415215211114334" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="979364679359287" type="capybara">
+                            <param id="0" name="Object">weed</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="301617701338070">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="922541927074690" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="877010958467910" type="Audio">
+                                    <param id="0" name="Audio file">eat</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="152177888070464" type="weed" />
+                                <action id="-10" name="Add to" sid="371202431577538" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Value">10</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="801106100114638" type="consume">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="409522151432472" type="E">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="743631832085724" title="lvl things">
+            <sub-events>
+                <event-group description="" sid="934471798757298" title="checkpoints">
+                    <sub-events>
+                        <event-block sid="916332949215854">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="960090482579358" type="capybara">
+                                    <param id="0" name="Object">collider_checkpoint</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="104690452262503">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="242887999615649" type="collider_checkpoint">
+                                            <param id="0" name="Unique ID">36</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="746526634097764" type="chekcpoint">
+                                            <param id="0" name="X">1379.465</param>
+                                            <param id="1" name="Y"> 242.239</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="178462776005521">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="624946766201487" type="collider_checkpoint">
+                                            <param id="0" name="Unique ID">48</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="649117262513841" type="chekcpoint">
+                                            <param id="0" name="X">2602.682</param>
+                                            <param id="1" name="Y">279.146</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="485350005941320">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="964606636986294" type="collider_checkpoint">
+                                            <param id="0" name="Unique ID">59</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="407869920407968" type="chekcpoint">
+                                            <param id="0" name="X">2756.205</param>
+                                            <param id="1" name="Y">116.056</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="820715330912289">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="145488923193831" type="collider_checkpoint">
+                                            <param id="0" name="Unique ID">64</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="655142402337624" type="chekcpoint">
+                                            <param id="0" name="X">4726.31</param>
+                                            <param id="1" name="Y">282.341</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="984695303889324">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="608514571449997" type="collider_checkpoint">
+                                            <param id="0" name="Unique ID">82</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="767563895006759" type="chekcpoint">
+                                            <param id="0" name="X">7738.5</param>
+                                            <param id="1" name="Y">274.736</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="800489586546638" title="finish">
+                    <sub-events>
+                        <event-block sid="353600479550898">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="532531405854697" type="capybara">
+                                    <param id="0" name="Object">finish</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="426864496416679">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="993163754687109" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="224780445205478" type="Audio">
+                                            <param id="0" name="Audio file">finish</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="530098902918181">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="389192327672446" type="capybara">
+                                    <param id="0" name="Object">finish</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="110071215268052" type="capybara">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="465867636156710" type="capybara">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="700680299353899" type="capybara">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="478692543842055" type="System">
+                                    <param id="0" name="Seconds">2.5</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="903164537628559" type="System">
+                                    <param id="0" name="Layout">thanks</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="766027910195661" title="restart">
+                    <sub-events>
+                        <event-block sid="645178978427155">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="163340267706404" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="469908314677852" type="restart2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="335018059350157">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="817018834562833" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">restart2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Go to layout" sid="154635211435459" type="System">
+                                    <param id="0" name="Layout">lvl1</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="773793105274180" type="capybara">
+                                    <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">100</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="139873244546695" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Value">25</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="999026126211647" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="12" name="Remove all effects" sid="746719942899417" type="Audio">
+                                    <param id="0" name="Tag">&quot;calm&quot;</param>
+                                </action>
+                                <action id="-31" name="Set layout effect parameter" sid="593657746621195" type="System">
+                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">100</param>
+                                </action>
+                                <action id="-31" name="Set layout effect parameter" sid="765223009147489" type="System">
+                                    <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="671400520011112">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="490526973660897" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">home</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Go to layout" sid="307058235131426" type="System">
+                                    <param id="0" name="Layout">main menu</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="859483564241838" type="System">
+                                    <param id="0" name="Variable">fuel</param>
+                                    <param id="1" name="Value">25</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="875627063384436" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

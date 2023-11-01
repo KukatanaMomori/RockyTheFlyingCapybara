@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sounds</name>
+    <events>
+        <event-group description="" sid="921857741053326" title="sounds">
+            <sub-events>
+                <event-group description="" sid="774534985219004" title="music">
+                    <sub-events>
+                        <comment>mute/unmute music</comment>
+                        <event-block sid="181778596176795">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="754843113698317" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">music_btn</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="838653122671528">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="229456266586723" type="System">
+                                            <param id="0" name="Variable">music</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Set muted" sid="190426276622134" type="Audio">
+                                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="800069118366800" type="System">
+                                            <param id="0" name="Variable">music</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="241592311743090" type="music_btn">
+                                            <param id="0" name="Animation">&quot;mute&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="403290183607944">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="921107130163935" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Set muted" sid="411588215686395" type="Audio">
+                                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="908854146999568" type="System">
+                                            <param id="0" name="Variable">music</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="996031016085003" type="music_btn">
+                                            <param id="0" name="Animation">&quot;unmute&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="283517061123566">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="797806462996317" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="446275655078912" type="Audio">
+                                    <param id="0" name="Audio file">calm music</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;calm&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="198687830046480" title="sound distort">
+                    <sub-events>
+                        <event-block sid="303921244954474">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="972974969214584" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="490015987464249">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="843002366382737" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="31" name="Add distortion effect" sid="769933324844711" type="Audio">
+                                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                                            <param id="1" name="Threshold">-15</param>
+                                            <param id="2" name="Headroom">1</param>
+                                            <param id="3" name="Drive">10</param>
+                                            <param id="4" name="Make-up gain">0</param>
+                                            <param id="5" name="Mix">100</param>
+                                        </action>
+                                        <action id="-29" name="Set layout effect enabled" sid="466285559683606" type="System">
+                                            <param id="0" name="Mode">1</param>
+                                            <param id="1" name="Effect">&quot;Brightness&quot;</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="159419594495920" type="System">
+                                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">95</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="137294833718196">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="569565038809682" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">16</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="435529721851289">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="506614020874556" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="31" name="Add distortion effect" sid="974121358929455" type="Audio">
+                                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                                            <param id="1" name="Threshold">-25</param>
+                                            <param id="2" name="Headroom">21</param>
+                                            <param id="3" name="Drive">40</param>
+                                            <param id="4" name="Make-up gain">0</param>
+                                            <param id="5" name="Mix">100</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="217251926871962" type="System">
+                                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">90</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="694233633506021" type="System">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">150</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="551893946301373">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="840167814804350" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">24</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="424958085732533">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="603541154827211" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="31" name="Add distortion effect" sid="530144873379756" type="Audio">
+                                            <param id="0" name="Tag">&quot;calm&quot;</param>
+                                            <param id="1" name="Threshold">-4</param>
+                                            <param id="2" name="Headroom">21</param>
+                                            <param id="3" name="Drive">65</param>
+                                            <param id="4" name="Make-up gain">0</param>
+                                            <param id="5" name="Mix">100</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="629638793236970" type="System">
+                                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">85</param>
+                                        </action>
+                                        <action id="-31" name="Set layout effect parameter" sid="544028380503826" type="System">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">400</param>
+                                        </action>
+                                        <action id="3" name="Set font size" sid="430968225904485" type="Death">
+                                            <param id="0" name="Size (pt)">20</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="725997364275340">
+                                    <conditions>
+                                        <condition id="-1" name="Every tick" sid="121697697374595" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="787431888222110" type="System">
+                                            <param id="0" name="Variable">death</param>
+                                            <param id="1" name="Value">24</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="214759083049572">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="421882145012764" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="498315096495682">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="394098601223975" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-27" name="Set effect enabled" sid="165058872881661" type="capybara">
+                                            <param id="0" name="Mode">1</param>
+                                            <param id="1" name="Effect">&quot;Contrast&quot;</param>
+                                        </action>
+                                        <action id="-27" name="Set effect enabled" sid="854645840159140" type="capybara">
+                                            <param id="0" name="Mode">1</param>
+                                            <param id="1" name="Effect">&quot;Brightness&quot;</param>
+                                        </action>
+                                        <action id="-28" name="Set effect parameter" sid="231374653509011" type="capybara">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">110</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="282345403552367">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="266983691679932" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="913825649738413">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="641486913807840" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-28" name="Set effect parameter" sid="992091459327616" type="capybara">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">150</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="682192421979965">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="926035715033597" type="System">
+                                    <param id="0" name="Variable">death</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">15</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="609295034386916">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="186852837094261" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-28" name="Set effect parameter" sid="599642667456637" type="capybara">
+                                            <param id="0" name="Effect">&quot;Contrast&quot;</param>
+                                            <param id="1" name="Parameter index">0</param>
+                                            <param id="2" name="Value">250</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-block disabled="1" sid="883057538023507">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="448076004623471" type="System" />
+            </conditions>
+            <actions>
+                <action id="25" name="Play at object" sid="595457419807081" type="Audio">
+                    <param id="0" name="Audio file">spear</param>
+                    <param id="1" name="Loop">1</param>
+                    <param id="2" name="Volume">20</param>
+                    <param id="3" name="Object">spear</param>
+                    <param id="4" name="Inner angle">180</param>
+                    <param id="5" name="Outer angle">180</param>
+                    <param id="6" name="Outer gain">-20</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

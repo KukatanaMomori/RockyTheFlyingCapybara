@@ -2,7 +2,7 @@
 <c2layout>
     <name>lvl1</name>
     <sid>4650502934421703</sid>
-    <event-sheet>controls</event-sheet>
+    <event-sheet>main</event-sheet>
     <size>
         <width>9999</width>
         <height>320</height>
